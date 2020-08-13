@@ -2,8 +2,13 @@
 
 class EmployeesController < ApplicationController
   def index
-    @empleado = Employee.where(private_number: params[:private_number])
+    @empleado = Employee.where(private_number: params[:private_number]).first
     puts @empleado.inspect
-    redirect_to :employees
+    if @empleado.nil?
+      flash[:alert] = "El número de empleado fue incorrecto."
+    else
+      flash[:alert] = "Bienvenido #{@empleado.name}."
+    end
+    redirect_to :root
   end
 end

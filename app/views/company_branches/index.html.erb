@@ -1,3 +1,9 @@
+<% flash.each do |type, msg| %>
+  <div id="alert" class="alert alert-info">
+    <%= msg %>
+  </div>
+<% end %>
+
 <div id="clockdate">
   <div class="clockdate-wrapper">
     <div id="clock"></div>

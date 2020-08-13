@@ -38,4 +38,10 @@ select.addEventListener('change',
     document.getElementById('company-name').innerText = '¡Hola! Bienvenido a ' + this.options[select.selectedIndex].innerText;
   });
 
+$('document').ready(function() {
+  setTimeout(function() {
+    $('#alert').slideUp();
+  }, 5000);
+});
+
 document.onload = startTime();
