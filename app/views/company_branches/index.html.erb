@@ -1,15 +1,17 @@
-<%= select("name", "id", @companies) %>
-<%
-=begin%>
- <%= options_for_select(@companies) %> 
-<%
-=end%>
-
-<div id="clockdate" onclick="startTime();">
+<div id="clockdate">
   <div class="clockdate-wrapper">
     <div id="clock"></div>
     <div id="date"></div>
   </div>
 </div>
 
-<%= javascript_pack_tag 'company_branch.js' %>
+<h4 id="company-name">¡Hola! Bienvenido a <%= @companies.first.name %></h4>
+
+<%= form_with(url: "/employees", method: "post") do %>
+  <%= label_tag(:private_number, "Employee number:") %>
+  <%= text_field_tag(:private_number) %>
+  <%= select_tag "companies", options_from_collection_for_select(@companies, "id", "name") %>
+  <%= submit_tag("Record") %>
+<% end %>
+
+<%= javascript_pack_tag "company_branch.js" %>
