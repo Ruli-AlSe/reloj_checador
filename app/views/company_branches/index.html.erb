@@ -1,0 +1,15 @@
+<%= select("name", "id", @companies) %>
+<%
+=begin%>
+ <%= options_for_select(@companies) %> 
+<%
+=end%>
+
+<div id="clockdate" onclick="startTime();">
+  <div class="clockdate-wrapper">
+    <div id="clock"></div>
+    <div id="date"></div>
+  </div>
+</div>
+
+<%= javascript_pack_tag 'company_branch.js' %>
